@@ -63,20 +63,27 @@ struct at_parser *at_parser_alloc(const struct at_parser_callbacks *cbs, size_t 
     }
 
     /* Allocate response buffer. */
-    parser->buf = malloc(bufsize);
-    if (parser->buf == NULL) {
+    void *buf = malloc(bufsize);
+    if (buf == NULL) {
         free(parser);
         errno = ENOMEM;
         return NULL;
     }
+
+    at_parser_init(parser, cbs, buf, bufsize, priv);
+
+    return parser;
+}
+
+void at_parser_init(struct at_parser *parser, const struct at_parser_callbacks *cbs, void *buf, size_t bufsize, void *priv)
+{
     parser->cbs = cbs;
+    parser->buf = buf;
     parser->buf_size = bufsize;
     parser->priv = priv;
 
     /* Prepare instance. */
     at_parser_reset(parser);
-
-    return parser;
 }
 
 void at_parser_reset(struct at_parser *parser)
