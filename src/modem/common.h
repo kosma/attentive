@@ -9,6 +9,10 @@
 #ifndef MODEM_COMMON_H
 #define MODEM_COMMON_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <attentive/cellular.h>
 
 /**
@@ -57,6 +61,10 @@ int cellular_op_creg(struct cellular *modem);
 int cellular_op_rssi(struct cellular *modem);
 int cellular_op_clock_gettime(struct cellular *modem, struct timespec *ts);
 int cellular_op_clock_settime(struct cellular *modem, const struct timespec *ts);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 
