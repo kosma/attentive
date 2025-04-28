@@ -215,6 +215,9 @@ static int sim800_detach(struct cellular *modem)
 
 static int sim800_clock_gettime(struct cellular *modem, struct timespec *ts)
 {
+    (void) modem;
+    (void) ts;
+
     /* TODO: See CYC-1255. */
     errno = ENOSYS;
     return -1;
@@ -222,6 +225,9 @@ static int sim800_clock_gettime(struct cellular *modem, struct timespec *ts)
 
 static int sim800_clock_settime(struct cellular *modem, const struct timespec *ts)
 {
+    (void) modem;
+    (void) ts;
+
     /* TODO: See CYC-1255. */
     errno = ENOSYS;
     return -1;
@@ -488,10 +494,10 @@ static ssize_t sim800_socket_recv(struct cellular *modem, int connid, void *buff
 
         /* Find the header line. */
         int requested, confirmed;
-        // TODO: 
+        // TODO:
         // 1. connid is not checked
         // 2. there is possible a bug here. if not all data are ready (confirmed < requested)
-        // then wierd things can happen. see memcpy 
+        // then wierd things can happen. see memcpy
         // requested should be equal to chunk
         // confirmed is that what can be read
         at_simple_scanf(response, "+CIPRXGET: 2,%*d,%d,%d", &requested, &confirmed);
@@ -502,7 +508,7 @@ static ssize_t sim800_socket_recv(struct cellular *modem, int connid, void *buff
             break;
 
         /* Locate the payload. */
-        /* TODO: what if no \n is in input stream? 
+        /* TODO: what if no \n is in input stream?
          * should use strnchr at least */
         const char *data = strchr(response, '\n');
         if (data == NULL) {
