@@ -8,6 +8,7 @@
 
 #include <attentive/cellular.h>
 
+#include <inttypes.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -258,9 +259,9 @@ static int sim800_clock_ntptime(struct cellular *modem, struct timespec *ts)
                 {
                     ts->tv_sec = (long int)buf[i] + ts->tv_sec*256;
                 }
-                printf("sim800: catched UTC timestamp -> %d\n", ts->tv_sec);
+                printf("sim800: catched UTC timestamp -> %" PRId64 "\n", ts->tv_sec);
                 ts->tv_sec -= 2208988800L;        //UTC to UNIX time conversion
-                printf("sim800: final UNIX timestamp -> %d\n", ts->tv_sec);
+                printf("sim800: final UNIX timestamp -> %" PRId64 "\n", ts->tv_sec);
                 goto close_conn;
             }
 
