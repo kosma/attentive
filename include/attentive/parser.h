@@ -9,6 +9,10 @@
 #ifndef ATTENTIVE_PARSER_H
 #define ATTENTIVE_PARSER_H
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #include <errno.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -129,6 +133,10 @@ void at_parser_free(struct at_parser *parser);
  * @returns True if found, false otherwise.
  */
 bool at_prefix_in_table(const char *line, const char *const table[]);
+
+#if defined(__cplusplus)
+}
+#endif
 
 #endif
 

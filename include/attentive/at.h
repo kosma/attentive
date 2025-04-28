@@ -9,6 +9,10 @@
 #ifndef ATTENTIVE_AT_H
 #define ATTENTIVE_AT_H
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #include <attentive/parser.h>
 
 /*
@@ -162,6 +166,10 @@ const char *at_command_raw(struct at *at, const void *data, size_t size);
             return -1;                                                      \
         }                                                                   \
     } while (0)
+
+#if defined(__cplusplus)
+}
+#endif
 
 #endif
 
