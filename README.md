@@ -1,6 +1,6 @@
 # Attentive: AT/GSM stack in pure C
 
-*[NOTE: Open sourced internal company product. Work in progress. Not production/release ready yet.]*
+*[NOTE: This project is a forever work in progress. Your mileage may vary.]*
 
 ## Features
 
@@ -27,9 +27,9 @@
 
 ## License
 
-Attentive was written by Kosma Moczek at [Cloud Your Car](https://cloudyourcar.com/).
+Attentive was written and open sourced by Kosma Moczek while working at [Cloud Your Car](https://cloudyourcar.com/).
 
-> Copyright © 2014 Kosma Moczek \<kosma@cloudyourcar.com\>
+> Copyright © 2014-now Kosma Moczek \<kosma@kosma.pl\>
 > 
 > This program is free software. It comes without any warranty, to the extent
 > permitted by applicable law. You can redistribute it and/or modify it under
