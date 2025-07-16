@@ -26,7 +26,7 @@ GQueue expected_urcs = G_QUEUE_INIT;
 void assert_line_expected(const char *line, size_t len, GQueue *q)
 {
     const char *expected = g_queue_pop_head(q);
-    ck_assert_msg(expected != NULL);
+    ck_assert_msg(expected != NULL, "Queue was empty");
     ck_assert_str_eq(line, expected);
     ck_assert_int_eq(len, strlen(expected));
 }
