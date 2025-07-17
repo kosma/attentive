@@ -66,6 +66,20 @@ struct at_parser_callbacks {
 struct at_parser *at_parser_alloc(const struct at_parser_callbacks *cbs, size_t bufsize, void *priv);
 
 /**
+ * Initialize a parser instance.
+ *
+ * Initialize an already allocated at_parser instance.
+ *
+ * @param parser Parser instance.
+ * @param cbs Parser callbacks. Structure is not copied; must persist for
+ *            the lifetime of the parser.
+ * @param buf Response buffer. Must be at least bufsize bytes long.
+ * @param bufsize Response buffer size on bytes.
+ * @param priv Private argument; passed to callbacks.
+ */
+void at_parser_init(struct at_parser *parser, const struct at_parser_callbacks *cbs, void *buf, size_t bufsize, void *priv);
+
+/**
  * Reset parser instance to initial state.
  *
  * @param parser Parser instance.
