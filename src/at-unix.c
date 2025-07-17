@@ -312,7 +312,9 @@ const char *at_command(struct at *at, const char *format, ...)
         return NULL;
     }
 
+#if definedf ATTENTIVE_DEBUG
     printf("> %s\n", line);
+#endif
 
     /* Append modem-style newline. */
     line[len++] = '\r';
@@ -325,7 +327,9 @@ const char *at_command_raw(struct at *at, const void *data, size_t size)
 {
     struct at_unix *priv = (struct at_unix *) at;
 
+#if defined(ATTENTIVE_DEBUG)
     printf("> [%zu bytes]\n", size);
+#endif
 
     return _at_command(priv, data, size);
 }

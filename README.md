@@ -25,12 +25,17 @@
 * Telit modems (SELINT 2 compatibility level)
 * Simcom SIM800 series
 
+## Debugging
+
+The library is trying to be silent by default. To enable additional debug logs
+during development `ATTENTIVE_DEBUG` can be defined.
+
 ## License
 
 Attentive was written and open sourced by Kosma Moczek while working at [Cloud Your Car](https://cloudyourcar.com/).
 
 > Copyright © 2014-now Kosma Moczek \<kosma@kosma.pl\>
-> 
+>
 > This program is free software. It comes without any warranty, to the extent
 > permitted by applicable law. You can redistribute it and/or modify it under
 > the terms of the Do What The Fuck You Want To Public License, Version 2, as
