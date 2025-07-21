@@ -172,8 +172,10 @@ static void parser_handle_line(struct at_parser *parser)
     const char *line = parser->buf + parser->buf_current;
     size_t len = parser->buf_used - parser->buf_current;
 
+#if defined(ATTENTIVE_DEBUG)
     /* Log the received line. */
     printf("< '%.*s'\n", (int) len, line);
+#endif
 
     /* Determine response type. */
     enum at_response_type type = AT_RESPONSE_UNKNOWN;
