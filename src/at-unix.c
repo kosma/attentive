@@ -147,7 +147,8 @@ int at_open(struct at *at)
     if (priv->baudrate) {
         struct termios attr;
         tcgetattr(priv->fd, &attr);
-        cfsetspeed(&attr, priv->baudrate);
+        cfsetispeed(&attr, priv->baudrate);
+        cfsetospeed(&attr, priv->baudrate);
         tcsetattr(priv->fd, TCSANOW, &attr);
     }
 

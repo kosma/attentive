@@ -14,7 +14,7 @@
 #include <attentive/at.h>
 #include <attentive/at-unix.h>
 
-static void generic_modem_handle_urc(const void *line, size_t len, void *arg)
+static void generic_modem_handle_urc(const char *line, size_t len, void *arg)
 {
     printf("[%p] URC: %.*s\n", arg, (int) len, (char *) line);
 }
