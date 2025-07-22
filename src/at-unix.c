@@ -312,7 +312,7 @@ const char *at_command(struct at *at, const char *format, ...)
         return NULL;
     }
 
-#if definedf ATTENTIVE_DEBUG
+#if defined(ATTENTIVE_DEBUG)
     printf("> %s\n", line);
 #endif
 
