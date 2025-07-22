@@ -9,7 +9,12 @@
 #ifndef ATTENTIVE_CELLULAR_H
 #define ATTENTIVE_CELLULAR_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <time.h>
@@ -127,6 +132,10 @@ void cellular_telit2_free(struct cellular *modem);
 
 struct cellular *cellular_sim800_alloc(void);
 void cellular_sim800_free(struct cellular *modem);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 
