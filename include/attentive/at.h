@@ -9,7 +9,7 @@
 #ifndef ATTENTIVE_AT_H
 #define ATTENTIVE_AT_H
 
-#if defined(__cplusplus)
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -167,7 +167,7 @@ const char *at_command_raw(struct at *at, const void *data, size_t size);
         }                                                                   \
     } while (0)
 
-#if defined(__cplusplus)
+#ifdef __cplusplus
 }
 #endif
 

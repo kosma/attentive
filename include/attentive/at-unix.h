@@ -9,7 +9,7 @@
 #ifndef ATTENTIVE_AT_UNIX_H
 #define ATTENTIVE_AT_UNIX_H
 
-#if defined(__cplusplus)
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -26,7 +26,7 @@ extern "C" {
  */
 struct at *at_alloc_unix(const char *devpath, speed_t baudrate);
 
-#if defined(__cplusplus)
+#ifdef __cplusplus
 }
 #endif
 

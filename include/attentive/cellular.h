@@ -9,7 +9,7 @@
 #ifndef ATTENTIVE_CELLULAR_H
 #define ATTENTIVE_CELLULAR_H
 
-#if defined(__cplusplus)
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -133,7 +133,7 @@ void cellular_telit2_free(struct cellular *modem);
 struct cellular *cellular_sim800_alloc(void);
 void cellular_sim800_free(struct cellular *modem);
 
-#if defined(__cplusplus)
+#ifdef __cplusplus
 }
 #endif
 
