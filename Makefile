@@ -12,21 +12,24 @@ LIBRARIES = check glib-2.0
 all: test example
 	@echo "+++ All good."""
 
-test: tests/test-parser
+test: tests/test-parser tests/test-timegm
 	@echo "+++ Running parser test suite."
 	tests/test-parser
+	@echo "+++ Running at-timegm test suite."
+	tests/test-timegm
 
 clean:
-	$(RM) src/example-at src/example-sim800 tests/test-parser
+	$(RM) src/example-at src/example-sim800 tests/test-parser tests/test-timegm
 	$(RM) src/*.o src/modem/*.o tests/*.o
 
 PARSER = include/attentive/parser.h
 AT = include/attentive/at.h include/attentive/at-unix.h $(PARSER)
-CELLULAR = include/attentive/cellular.h $(AT)
+CELLULAR = include/attentive/cellular.h include/attentive/at-timegm.h $(AT)
 MODEM = src/modem/common.h $(CELLULAR)
 
 src/parser.o: src/parser.c $(PARSER)
 src/at-unix.o: src/at-unix.c $(AT)
+src/at-timegm.o: src/at-timegm.c
 src/cellular.o: src/cellular.c $(CELLULAR)
 src/modem/common.o: src/modem/common.c $(MODEM)
 src/modem/generic.o: src/modem/generic.c $(MODEM)
@@ -37,8 +40,9 @@ src/example-at.o: src/example-at.c $(AT)
 src/example-sim800.o: src/example-sim800.c $(CELLULAR)
 
 tests/test-parser: tests/test-parser.o src/parser.o
+tests/test-timegm: tests/test-timegm.o src/at-timegm.o
 
-src/example-at: src/example-at.o src/parser.o src/at-unix.o
-src/example-sim800: src/example-sim800.o src/modem/sim800.o src/modem/common.o src/cellular.o src/at-unix.o src/parser.o
+src/example-at: src/example-at.o src/parser.o src/at-unix.o src/at-timegm.o
+src/example-sim800: src/example-sim800.o src/modem/sim800.o src/modem/common.o src/cellular.o src/at-unix.o src/at-timegm.o src/parser.o
 
 .PHONY: all test clean

@@ -7,6 +7,7 @@
  */
 
 #include <attentive/cellular.h>
+#include <attentive/at-timegm.h>
 
 #include <stdio.h>
 #include <string.h>
@@ -159,7 +160,7 @@ static int telit2_op_clock_gettime(struct cellular *modem, struct timespec *ts)
     /* Adjust values and perform conversion. */
     tm.tm_year += 2000 - 1900;
     tm.tm_mon -= 1;
-    time_t unix_time = timegm(&tm);
+    time_t unix_time = at_timegm(&tm);
     if (unix_time == -1) {
         errno = EINVAL;
         return -1;
