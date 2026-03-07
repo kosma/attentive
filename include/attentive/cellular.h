@@ -18,6 +18,7 @@ extern "C" {
 #include <stdint.h>
 #include <stdio.h>
 #include <time.h>
+#include <unistd.h>
 
 #include <attentive/at.h>
 
